@@ -24,7 +24,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
-	padding: 10px;
 }
 
 #shutter-button {
@@ -38,6 +37,7 @@
 .camera-component {
 	width: 100%;
 	min-height: 85vh;
-	max-height: 85vh;
 	background-color: #0f0f0f;
+	object-fit: cover;
+	transform: scaleX(-1);
 }

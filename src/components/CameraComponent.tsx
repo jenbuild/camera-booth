@@ -40,12 +40,12 @@ const CameraComponent = () => {
                         ref={videoRef}
                         autoPlay
                         playsInline
-                        // className="camera-component"
+                        className="camera-component"
                         style={{
                             margin: 0,
                             padding: 0,
                             width: "100%",
-                            minHeight: "85vh"
+                            height: "100%",
                         }}
                     />
                 )}
