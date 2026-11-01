@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const CameraComponent = ({ stream, videoRef, error, setError }: { stream: MediaStream | null; videoRef: React.RefObject<HTMLVideoElement | null>; error: string | null; setError: React.Dispatch<React.SetStateAction<string | null>> }) => {
+const CameraComponent = ({ stream, videoRef, error }: { stream: MediaStream | null; videoRef: React.RefObject<HTMLVideoElement | null>; error: string | null }) => {
 
     useEffect(() => {
         if (videoRef.current && stream) {

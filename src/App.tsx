@@ -53,7 +53,7 @@ function App() {
   return (
     <main className="container">
 
-      <CameraComponent stream={stream} videoRef={videoRef} error={error} setError={setError} />
+      <CameraComponent stream={stream} videoRef={videoRef} error={error} />
 
       <div className="camera-controls">
         <div id="shutter-button" onClick={handleCapture}>
