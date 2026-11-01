@@ -1,35 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 
-const CameraComponent = () => {
-    const videoRef = useRef<HTMLVideoElement | null>(null);
-    const [error, setError] = useState<string | null>(null);
+const CameraComponent = ({ stream, videoRef, error, setError }: { stream: MediaStream | null; videoRef: React.RefObject<HTMLVideoElement | null>; error: string | null; setError: React.Dispatch<React.SetStateAction<string | null>> }) => {
 
     useEffect(() => {
-        const startCamera = async () => {
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({
-                    video: { width: 1200, height: 720 }
-                })
-
-                if (videoRef.current) {
-                    videoRef.current.srcObject = stream;
-                }
-            } catch (err) {
-                console.error("Error accessing camera");
-                setError("Could not access Camera");
-            }
+        if (videoRef.current && stream) {
+            videoRef.current.srcObject = stream;
         }
-
-        startCamera();
-
-        return () => {
-            if (videoRef.current && videoRef.current.srcObject) {
-                const stream = videoRef.current.srcObject as MediaStream;
-                const tracks = stream.getTracks();
-                tracks.forEach((track: MediaStreamTrack) => track.stop());
-            }
-        }
-    }, [])
+    }, [stream, videoRef])
 
     return (
         <>
